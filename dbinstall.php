@@ -99,15 +99,15 @@ if ($request->isGet()) {
 
   // Print a warning about php >= 8.1 because of a breaking change
   // with mysqli default error mode, see https://php.watch/versions/8.1/mysqli-error-mode
-  if (version_compare(phpversion(), '8.1.12', '>=')) {
-    echo('<font color="red">Error: This app was not tested with PHP version: '.phpversion().'</font><br>');
-  } else {
+  // if (version_compare(phpversion(), '8.1.12', '>=')) {
+  //   echo('<font color="red">Error: This app was not tested with PHP version: '.phpversion().'</font><br>');
+  // } else {
     if (version_compare(phpversion(), $required_version, '>=')) {
       echo('PHP version: '.phpversion().', good enough.<br>');
     } else {
       echo('<font color="red">Error: PHP version is not high enough: '.phpversion().'. Required: '.$required_version.'.</font><br>');
     }
-  }
+ //}
 
   // Depending on DSN, require either mysqli or mysql extensions.
   if (strrpos(DSN, 'mysqli://', -strlen(DSN)) !== FALSE) {
